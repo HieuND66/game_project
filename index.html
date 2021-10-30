@@ -19,14 +19,14 @@
 
           <div class="container">
             <div class="item" id="user">
-             
+              <p class="damgeuser" :class="{'open': animate}" >-{{monsterDamage}}</p>
               <div class="heart-wrap">
                 <div :style="{width: userHeart + '%'}" class="heart"></div>
               </div>
               <img src="./images/user-01.png" alt="">
             </div>
             <div class="item" id="monster">
-      
+              <p class="damge" :class="{'open': animate}" >-{{userDamage}}</p>
               <div class="heart-wrap">
                 <div :style="{width: monsterHeart + '%'}" class="heart"></div>
               </div>
@@ -34,8 +34,8 @@
             </div>
           </div>
           <div class="controls">
-            <button v-if="!isFighting" @click="userAttack">Attack</button>
-            <button  @click="userBuff">Buff</button>
+            <button v-if="!isFighting" @click="userAttack" v-show="handlebtn">Attack</button>
+            <button  @click="userBuff" v-show="handlebtn">Buff</button>
           </div>
           <div class="end-game" v-if="headleEnd1">
              <img src="./images/winner-01.png" alt="">
